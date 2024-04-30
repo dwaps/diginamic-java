@@ -3,7 +3,9 @@ package fr.algorithmie;
 import java.util.Scanner;
 
 public class InteractifTantQue {
-  public static void main(String[] args) {
+  public static int userNb = -1;
+
+  public static void main(String... args) {
     String instruction = "Entrer un nombre entre 1 et 10";
     String[] errors = {
         "\nLe nombre renseigné n'est pas dans l'intervalle...\n",
@@ -18,7 +20,6 @@ public class InteractifTantQue {
         "\n...\n",
     };
     Scanner sc = new Scanner(System.in);
-    int nb = -1;
     int count = 1;
     boolean firstLoop = true;
     boolean fromCatch = false;
@@ -33,19 +34,19 @@ public class InteractifTantQue {
       System.out.println(instruction);
 
       try {
-        nb = sc.nextInt();
+        InteractifTantQue.userNb = sc.nextInt();
       } catch (Exception e) {
         fromCatch = true;
         sc.next();
-        nb = -1;
+        InteractifTantQue.userNb = -1;
         System.out.println(errors[count++]);
         if (count >= errors.length)
           count = 1;
       }
-    } while (nb < 0 || nb > 10);
+    } while (InteractifTantQue.userNb < 0 || InteractifTantQue.userNb > 10);
 
     sc.close();
     System.out.println("Yeaah !!!");
-    System.out.println("Voilà ton nombre au cas où tu t'en rappelle plus: " + nb + ". BAM.");
+    System.out.println("Voilà ton nombre au cas où tu t'en rappelle plus: " + InteractifTantQue.userNb + ". BAM.");
   }
 }
