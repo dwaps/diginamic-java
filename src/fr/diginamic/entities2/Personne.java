@@ -16,6 +16,15 @@ public class Personne {
     this.adresse = adresse;
   }
 
+  public void afficher() {
+    System.out.println(String.format("""
+
+          > QUI EST-TU ?
+          Nom: %s
+          Prénom: %s
+        """, nom.toUpperCase(), prenom));
+  }
+
   public String getNom() {
     return nom;
   }
