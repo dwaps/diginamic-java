@@ -1,4 +1,6 @@
-package fr.diginamic.entities;
+package fr.diginamic.entities2;
+
+import fr.diginamic.entities.AdressePostale;
 
 public class Personne {
   private String nom;
