@@ -1,0 +1,2 @@
+#!/usr/bin/sh
+/usr/bin/env C:\\java\\jdk\\jdk-21.0.2\\bin\\java.exe -XX:+ShowCodeDetailsInExceptionMessages -cp C:\\Users\\eidwa\\AppData\\Roaming\\Code\\User\\workspaceStorage\\f64554dbe9d03201e4f681cebae629c0\\redhat.java\\jdt_ws\\diginamic-java_15cb7002\\bin $1
