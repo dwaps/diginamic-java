@@ -1,6 +1,7 @@
 package fr.diginamic.banque.entites;
 
 public class Compte {
+  protected String name = Compte.class.getSimpleName();
   private int num;
   private double solde;
 
@@ -28,8 +29,9 @@ public class Compte {
   @Override
   public String toString() {
     return String.format("""
-          Numéro de compte: %d
-          Solde du compte: %.2f
-        """, num, solde);
+
+        %s
+        Numéro de compte: %d
+        Solde du compte: %.2f""", this.name, num, solde);
   }
 }
