@@ -24,4 +24,12 @@ public class Compte {
   public void setSolde(double solde) {
     this.solde = solde;
   }
+
+  @Override
+  public String toString() {
+    return String.format("""
+          Numéro de compte: %d
+          Solde du compte: %.2f
+        """, num, solde);
+  }
 }
