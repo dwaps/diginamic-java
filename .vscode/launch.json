@@ -1,0 +1,12 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "GameOfLife",
+      "request": "launch",
+      "mainClass": "fr.diginamic.automatons.GameOfLife",
+      "projectName": "diginamic-java_15cb7002",
+      "args": [""]
+    }
+  ]
+}
