@@ -16,7 +16,7 @@ public abstract class CellsMap {
 
     for (int i = 0; i < lines; i++) {
       for (int j = 0; j < columns; j++) {
-        Cell cell = new Cell(CellState.random());
+        Cell cell = new Cell(CellState.random(), j, i);
         map[i][j] = cell;
       }
     }

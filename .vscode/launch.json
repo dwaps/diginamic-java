@@ -2,6 +2,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "App",
+      "request": "launch",
+      "mainClass": "fr.diginamic.App",
+      "projectName": "diginamic-java_15cb7002"
+    },
+    {
+      "type": "java",
       "name": "GameOfLife",
       "request": "launch",
       "mainClass": "fr.diginamic.automatons.GameOfLife",
