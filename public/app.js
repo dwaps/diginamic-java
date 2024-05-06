@@ -17,10 +17,9 @@ socket.on(EVENT_LOGS, (data) => {
 
 inputEl.addEventListener("input", async () => {
   const userInput = inputEl.value.trim().toLowerCase();
-  if (userInput === "o") {
-    socket.emit(EVENT_POST_INPUT, userInput);
-    logDiv.innerHTML += userInput;
-  }
+  socket.emit(EVENT_POST_INPUT, userInput);
+  setTimeout(() => socket.emit(EVENT_GET_LOGS), 50);
+  logDiv.innerHTML += userInput;
   inputEl.value = "";
   inputEl.focus();
 });

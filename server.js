@@ -17,14 +17,14 @@ let javaLogs$ = new BehaviorSubject("");
 launchJavaProcess();
 
 const server = createServer(app).listen(3000);
-require("./socket-io")(server, javaLogs$);
+require("./socket-io")(server, javaLogs$, javaProcess);
 
 // FUNCTIONS
 function launchJavaProcess() {
   if (javaProcess) javaProcess.kill();
 
   if (!process.env.JAVA_HOME) {
-    console.log("Reseigner JAVA_HOME dans le PATH");
+    console.log("Renseigner JAVA_HOME dans le PATH");
   }
 
   const javaExe = resolve(process.env.JAVA_HOME, "bin", "java");
@@ -45,13 +45,16 @@ function launchJavaProcess() {
   }
 
   javaProcess.stdout.on("data", (data) => {
-    const logs = javaLogs$.value;
-    javaLogs$.next(logs + String(data));
+    javaLogs$.next(String(data));
   });
   javaProcess.stderr.on("data", (error) => {
-    const logs = javaLogs$.value;
-    javaLogs$.next(logs + String(error));
+    javaLogs$.next(String(error));
   });
 
   javaProcess.on("close", (code) => console.log("Code de sortie --> ", code));
+  javaProcess.on("error", (error) => {
+    // console.error(error);
+    // console.log("\nTrying to relaunch process");
+    // launchJavaProcess();
+  });
 }
