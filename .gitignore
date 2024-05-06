@@ -1,0 +1,14 @@
+# Compiled class file
+target/
+
+# Logs
+*.log
+
+# IntelliJ IDEA
+.idea/
+
+# Eclipse
+.classpath
+.project
+.settings/
+bin/
