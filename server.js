@@ -23,7 +23,13 @@ require("./socket-io")(server, javaLogs$);
 function launchJavaProcess() {
   if (javaProcess) javaProcess.kill();
 
-  javaProcess = spawn("java", ["-jar", "diginamic-java.jar", "utf8"], {
+  if (!process.env.JAVA_HOME) {
+    console.log("Reseigner JAVA_HOME dans le PATH");
+  }
+
+  const javaExe = resolve(process.env.JAVA_HOME, "bin", "java");
+
+  javaProcess = spawn(javaExe, ["-jar", "diginamic-java.jar", "utf8"], {
     stdio: "pipe",
   });
 
